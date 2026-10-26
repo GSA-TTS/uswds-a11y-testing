@@ -61,22 +61,18 @@ Answer 6: The Fully Successful bar in my original email is the standard. I don't
 ## Further Direction 1
 
 
-Benchmark. Add at least 4 peer design systems. For each, say what they automate, what they test manually, and what they publish.
-Metrics. Axe-core rules are test checks, not program metrics. I need at least 6 metrics that show how accessible USWDS is overall, such as open accessibility issues or median time to fix. Each needs a definition, a data source, a current value, and an FY27 target.
-Targets. Tie each one to what you find in the benchmark.
-Scorecard. One page showing the baseline, current value, target, and trend over time for each metric. A single table of current counts doesn't show progress.
+- Benchmark. Add at least 4 peer design systems. For each, say what they automate, what they test manually, and what they publish.
+- Metrics. Axe-core rules are test checks, not program metrics. I need at least 6 metrics that show how accessible USWDS is overall, such as open accessibility issues or median time to fix. Each needs a definition, a data source, a current value, and an FY27 target.
+- Targets. Tie each one to what you find in the benchmark.
+- Scorecard. One page showing the baseline, current value, target, and trend over time for each metric. A single table of current counts doesn't show progress.
 
 
 ## Further Direction 2
 
 1. Metrics. At least 6 distinct metrics.  At least 2 metrics must come from the uswds/uswds issue tracker. Explain any data you leave out, such as the "conditional" results and the 2 criteria missing from your metrics table.
-
 2. Baselines and history. Use October 1, 2026, as the baseline date. For each metric, show quarterly values going back to October 1, 2024. You can get them from the issue tracker and from the git history of the test data. Show how you got each number so someone else can reproduce it.
-
 3. Targets. Give a reason for each FY27 target. Where peers publish nothing useful, base the target on USWDS's own history and say so.
-
 4. Benchmark. For each "Unknown," say what sources you checked.
-
 5. Scorecard. One page with the baseline, quarterly history, current value, and FY27 target for each metric, plus a simple chart of at least one key metric over time.
 
 
@@ -87,14 +83,14 @@ Scorecard. One page showing the baseline, current value, target, and trend over 
 
 ## Links to Peer Systems 
 
-GOV.UK Design System - https://design-system.service.gov.uk/
-IBM Carbon Design System - https://www.carbondesignsystem.com/
-GitHub Primer Design System - https://primer.style/
-Salesforce Lightning Design System - https://www.lightningdesignsystem.com/
-Adobe Spectrum Design System - https://spectrum.adobe.com/
-Shopify Polaris Design System - https://shopify.dev/docs/api/polaris
-Visa Product Design System - https://design.visa.com/
-Nordhealth Design System - https://nordhealth.design/
-NYC Design System - http://designsystem.nyc.gov/
-New South Wales Design System - https://digital.nsw.gov.au/delivery/digital-service-toolkit/design-system
+- GOV.UK Design System - https://design-system.service.gov.uk/  
+- IBM Carbon Design System - https://www.carbondesignsystem.com/  
+- GitHub Primer Design System - https://primer.style/  
+- Salesforce Lightning Design System - https://www.lightningdesignsystem.com/  
+- Adobe Spectrum Design System - https://spectrum.adobe.com/  
+- Shopify Polaris Design System - https://shopify.dev/docs/api/polaris  
+- Visa Product Design System - https://design.visa.com/  
+- Nordhealth Design System - https://nordhealth.design/  
+- NYC Design System - http://designsystem.nyc.gov/  
+- New South Wales Design System - https://digital.nsw.gov.au/delivery/digital-service-toolkit/design-system  
 
