@@ -41,16 +41,16 @@ The table distinguishes **public evidence of a practice** from **public outcome 
 
 The scorecard uses eight **distinct** metrics. “Higher” or “lower” describes the proposed direction, not proof that any single change caused accessibility to improve.
 
-| ID | Metric and working definition | Oct. 1, 2026 baseline | Proposed FY27 target and justification |
-|---|---|---:|---|
-| **M1** | **Open accessibility-labeled issues:** distinct open `uswds/uswds` issues carrying `Affects: Accessibility 🟡` at the snapshot. | **61** | **≤50** at FY27 year-end. USWDS was at 58 on July 1, 2026, so 50 is an improvement beyond an observed low, not a purported peer median. Peer support: Carbon’s documented practice of filing scan violations and GOV.UK’s acceptance criteria make a visible, actionable backlog important. |
-| **M2** | **Open accessibility issues needing confirmation:** subset of M1 also carrying `Needs: Confirmation` at the snapshot. This measures an unresolved validation queue, **not severity**. | **12** | **≤6** at FY27 year-end. USWDS previously reached 7 (July and October 2025; July 2026). Six requires improvement on that observed level. GOV.UK’s explicit acceptance criteria and Carbon’s reproducibility requirements support prompt validation, but neither supplies the number six. |
-| **M3** | **Accessibility issues closed in the preceding calendar quarter:** distinct issues carrying the accessibility label **when closed**; count once per quarter even after multiple closures in that quarter. A reopened issue can count in two different quarters. | **37** in Q3 2026 | **≥20 per quarter** as an FY27 operating target, reported alongside M1 and new-issue inflow. Twenty is within demonstrated USWDS capacity (22 in Q4 2024; 25 in Q2 2026; 37 in Q3 2026), not a peer-derived closure quota. Once the backlog falls, a lower closure count may be healthy; never optimize this metric alone. |
-| **M4** | **Mean elapsed days to closure for M3:** arithmetic mean of *last closure in that quarter minus original creation*, one duration per issue. Closed intervals after prior closures are **not** subtracted. Report `N/A` if M3 is zero. | **638.0 days** in Q3 2026 | **≤365 days** for FY27 quarters with closures. USWDS achieved 400.8 in Q4 2024 and 284.2 in Q1 2025; 365 aims to return below the former. Historical backlog cleanups can initially raise the mean. Compare with M1, M3, and the median before drawing conclusions. No cited peer provides comparable time-to-close data. |
-| **M5** | **Published nonpassing test items:** `test_items` in all snapshot YAML files with `test_status` exactly `fail` **or** `exception`. | **14** (1 fail; 13 exceptions) | **≤10**, with **0 `fail`**, by FY27 year-end. Ten improves on the plateau of 14 recorded since April 2025; seven was observed in late 2024/early 2025 when the published inventory was smaller. Adobe’s named axe exclusions and Primer’s explicit skipped tests support retaining visible exception counts, *not* silently reclassifying them. |
-| **M6** | **Components with a published nonpassing test item:** number of distinct component YAML files containing at least one M5 item. Multiple items in one file count once. | **10 of 44 files** | **≤7 affected components** by FY27 year-end. Seven was observed in October 2024, when only 21 files existed; thus this is an improvement target **conditional on maintaining or increasing inventory** (M7), not a claim of comparable historical coverage. GOV.UK’s component-specific suites and Carbon’s per-component audit records support measuring impact by component. |
-| **M7** | **Published component-test inventory:** number of component `.yml` files under the accessibility-test data directory at the snapshot. This measures **documented scope**, not pass rate. | **44 files**, containing **503 test items** | **≥48 files** by FY27 year-end, without reducing published test-item coverage. USWDS grew from 21 files in October 2024 to 44; four additional files are a proposed, achievable increment, subject to identifying relevant components. GOV.UK’s component-specific test suites motivate explicit inventory coverage; its suite count is **not** directly comparable to USWDS file count. |
-| **M8** | **New WCAG 2.2 A/AA criteria with at least one explicit test record:** distinct criteria among the six listed below appearing in a `wcag_criterion` field. This is **documented test presence**, not automated coverage or conformance. | **3 of 6** | **6 of 6** by FY27 year-end, with a recorded outcome and method for each. USWDS has already documented tests for three; GOV.UK’s [WCAG-related acceptance criteria](https://github.com/alphagov/govuk-frontend/blob/main/docs/contributing/test-components-using-accessibility-acceptance-criteria.md) support closing explicit criteria gaps. Neither the peer nor this metric establishes conformance. |
+| ID | Metric and working definition | Data source | Oct. 1, 2026 baseline | Proposed FY27 target and justification |
+|---|---|---|---:|---|
+| **M1** | **Open accessibility-labeled issues:** distinct open `uswds/uswds` issues carrying `Affects: Accessibility 🟡` at the snapshot. | [`uswds/uswds` issues](https://github.com/uswds/uswds/issues) and [issue-event history](https://docs.github.com/en/rest/issues/events#list-issue-events-for-a-repository). | **61** | **≤50** at FY27 year-end. USWDS was at 58 on July 1, 2026, so 50 is an improvement beyond an observed low, not a purported peer median. Peer support: Carbon’s documented practice of filing scan violations and GOV.UK’s acceptance criteria make a visible, actionable backlog important. |
+| **M2** | **Open accessibility issues needing confirmation:** subset of M1 also carrying `Needs: Confirmation` at the snapshot. This measures an unresolved validation queue, **not severity**. | [`uswds/uswds` issues](https://github.com/uswds/uswds/issues) and [issue-event history](https://docs.github.com/en/rest/issues/events#list-issue-events-for-a-repository) for both labels. | **12** | **≤6** at FY27 year-end. USWDS previously reached 7 (July and October 2025; July 2026). Six requires improvement on that observed level. GOV.UK’s explicit acceptance criteria and Carbon’s reproducibility requirements support prompt validation, but neither supplies the number six. |
+| **M3** | **Accessibility issues closed in the preceding calendar quarter:** distinct issues carrying the accessibility label **when closed**; count once per quarter even after multiple closures in that quarter. A reopened issue can count in two different quarters. | [`uswds/uswds` issues](https://github.com/uswds/uswds/issues) and [closure/label events](https://docs.github.com/en/rest/issues/events#list-issue-events-for-a-repository). | **37** in Q3 2026 | **≥20 per quarter** as an FY27 operating target, reported alongside M1 and new-issue inflow. Twenty is within demonstrated USWDS capacity (22 in Q4 2024; 25 in Q2 2026; 37 in Q3 2026), not a peer-derived closure quota. Once the backlog falls, a lower closure count may be healthy; never optimize this metric alone. |
+| **M4** | **Mean elapsed days to closure for M3:** arithmetic mean of *last closure in that quarter minus original creation*, one duration per issue. Closed intervals after prior closures are **not** subtracted. Report `N/A` if M3 is zero. | [Issue creation timestamps](https://github.com/uswds/uswds/issues) and [closure/label events](https://docs.github.com/en/rest/issues/events#list-issue-events-for-a-repository). | **638.0 days** in Q3 2026 | **≤365 days** for FY27 quarters with closures. USWDS achieved 400.8 in Q4 2024 and 284.2 in Q1 2025; 365 aims to return below the former. Historical backlog cleanups can initially raise the mean. Compare with M1, M3, and the median before drawing conclusions. No cited peer provides comparable time-to-close data. |
+| **M5** | **Published nonpassing test items:** `test_items` in all snapshot YAML files with `test_status` exactly `fail` **or** `exception`. | [Baseline accessibility-test YAML tree](https://github.com/uswds/uswds-site/tree/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests); [historical commits below](#how-to-reproduce-the-numbers). | **14** (1 fail; 13 exceptions) | **≤10**, with **0 `fail`**, by FY27 year-end. Ten improves on the plateau of 14 recorded since April 2025; seven was observed in late 2024/early 2025 when the published inventory was smaller. Adobe’s named axe exclusions and Primer’s explicit skipped tests support retaining visible exception counts, *not* silently reclassifying them. |
+| **M6** | **Components with a published nonpassing test item:** number of distinct component YAML files containing at least one M5 item. Multiple items in one file count once. | [Baseline component-test YAML files](https://github.com/uswds/uswds-site/tree/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests); [historical commits below](#how-to-reproduce-the-numbers). | **10 of 44 files** | **≤7 affected components** by FY27 year-end. Seven was observed in October 2024, when only 21 files existed; thus this is an improvement target **conditional on maintaining or increasing inventory** (M7), not a claim of comparable historical coverage. GOV.UK’s component-specific suites and Carbon’s per-component audit records support measuring impact by component. |
+| **M7** | **Published component-test inventory:** number of component `.yml` files under the accessibility-test data directory at the snapshot. This measures **documented scope**, not pass rate. | [Baseline accessibility-test directory](https://github.com/uswds/uswds-site/tree/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests); [historical commits below](#how-to-reproduce-the-numbers). | **44 files**, containing **503 test items** | **≥48 files** by FY27 year-end, without reducing published test-item coverage. USWDS grew from 21 files in October 2024 to 44; four additional files are a proposed, achievable increment, subject to identifying relevant components. GOV.UK’s component-specific test suites motivate explicit inventory coverage; its suite count is **not** directly comparable to USWDS file count. |
+| **M8** | **New WCAG 2.2 A/AA criteria with at least one explicit test record:** distinct criteria among the six listed below appearing in a `wcag_criterion` field. This is **documented test presence**, not automated coverage or conformance. | [`wcag_criterion` fields in baseline YAML](https://github.com/uswds/uswds-site/tree/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests) compared with [WCAG 2.2](https://www.w3.org/TR/WCAG22/); [historical commits below](#how-to-reproduce-the-numbers). | **3 of 6** | **6 of 6** by FY27 year-end, with a recorded outcome and method for each. USWDS has already documented tests for three; GOV.UK’s [WCAG-related acceptance criteria](https://github.com/alphagov/govuk-frontend/blob/main/docs/contributing/test-components-using-accessibility-acceptance-criteria.md) support closing explicit criteria gaps. Neither the peer nor this metric establishes conformance. |
 
 ### WCAG 2.2 accounting and exclusions
 
@@ -61,6 +61,27 @@ M8 must not be described as the “share of WCAG criteria covered by **automated
 The YAML [data-key guide](https://github.com/uswds/uswds-site/blob/main/_data/accessibility-tests/_README.md) defines `conditional` separately from `fail` and `exception`. **Conditional results are excluded from M5 and M6**, not treated as passes or silently discarded. There were **110 conditional items** among 503 items at baseline. They should appear as a separate contextual count and be investigated for dependency on consumer implementation or context; treating them as definite component failures would change the question being measured.
 
 V1’s criterion table contained **3.3.3, 3.3.2, 1.4.10, 2.1.1, 2.4.6, 1.3.5, 3.2.2, and 2.4.7**. It omitted **1.3.1 Info and Relationships** and **2.4.3 Focus Order**, both represented by baseline `exception` records (respectively in `file-input.yml` and `header.yml`). Thus its criterion subtotals could not account for all 14 baseline `fail`/`exception` test items. These two criteria are included in M5 and M6; all ten criteria can be retained in a diagnostic appendix. A test item is not necessarily a unique defect or a unique WCAG failure.
+
+### V1 component/criterion results (diagnostic detail)
+
+The following reproduces the chart on pages 8–11 of the v1 PDF as a linked table, with all **14** baseline `fail` or `exception` items in the [October 1, 2026 snapshot](https://github.com/uswds/uswds-site/tree/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests). It is **not** eight additional program metrics. Each row represents one test item; repeated criteria or components are intentional. Links to component pages are for reading the published results; the pinned YAML links are the historical source of the status.
+
+| WCAG 2.2 criterion | Component | Result | Historical data |
+|---|---|---|---|
+| [1.3.1 Info and Relationships](https://www.w3.org/TR/WCAG22/#info-and-relationships) | [File input](https://designsystem.digital.gov/components/file-input/accessibility-tests/) | Exception | [`file-input.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/file-input.yml) |
+| [1.3.5 Identify Input Purpose](https://www.w3.org/TR/WCAG22/#identify-input-purpose) | [Input mask](https://designsystem.digital.gov/components/input-mask/accessibility-tests/) | Exception | [`input-mask.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/input-mask.yml) |
+| [1.4.10 Reflow](https://www.w3.org/TR/WCAG22/#reflow) | [Button](https://designsystem.digital.gov/components/button/accessibility-tests/) | Exception | [`button.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/button.yml) |
+| [2.1.1 Keyboard](https://www.w3.org/TR/WCAG22/#keyboard) | [Table](https://designsystem.digital.gov/components/table/accessibility-tests/) | Exception | [`table.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/table.yml) |
+| [2.1.1 Keyboard](https://www.w3.org/TR/WCAG22/#keyboard) | [Search](https://designsystem.digital.gov/components/search/accessibility-tests/) | Exception | [`search.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/search.yml) |
+| [2.4.3 Focus Order](https://www.w3.org/TR/WCAG22/#focus-order) | [Header](https://designsystem.digital.gov/components/header/accessibility-tests/) | Exception | [`header.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/header.yml) |
+| [2.4.6 Headings and Labels](https://www.w3.org/TR/WCAG22/#headings-and-labels) | [Language selector](https://designsystem.digital.gov/components/language-selector/accessibility-tests/) | Exception | [`language-selector.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/language-selector.yml) |
+| [2.4.7 Focus Visible](https://www.w3.org/TR/WCAG22/#focus-visible) | [File input](https://designsystem.digital.gov/components/file-input/accessibility-tests/) | Exception | [`file-input.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/file-input.yml) |
+| [3.2.2 On Input](https://www.w3.org/TR/WCAG22/#on-input) | [Language selector](https://designsystem.digital.gov/components/language-selector/accessibility-tests/) | Exception | [`language-selector.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/language-selector.yml) |
+| [3.3.2 Labels or Instructions](https://www.w3.org/TR/WCAG22/#labels-or-instructions) | [Input mask](https://designsystem.digital.gov/components/input-mask/accessibility-tests/) | Exception | [`input-mask.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/input-mask.yml) |
+| [3.3.2 Labels or Instructions](https://www.w3.org/TR/WCAG22/#labels-or-instructions) | [Date picker](https://designsystem.digital.gov/components/date-picker/accessibility-tests/) | Exception | [`date-picker.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/date-picker.yml) |
+| [3.3.2 Labels or Instructions](https://www.w3.org/TR/WCAG22/#labels-or-instructions) | [Date range picker](https://designsystem.digital.gov/components/date-range-picker/accessibility-tests/) | Exception | [`date-range-picker.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/date-range-picker.yml) |
+| [3.3.3 Error Suggestion](https://www.w3.org/TR/WCAG22/#error-suggestion) | [Input mask](https://designsystem.digital.gov/components/input-mask/accessibility-tests/) | Fail | [`input-mask.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/input-mask.yml) |
+| [3.3.3 Error Suggestion](https://www.w3.org/TR/WCAG22/#error-suggestion) | [Character count](https://designsystem.digital.gov/components/character-count/accessibility-tests/) | Exception | [`character-count.yml`](https://github.com/uswds/uswds-site/blob/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests/character-count.yml) |
 
 ## One-page quarterly scorecard
 
@@ -79,21 +100,88 @@ V1’s criterion table contained **3.3.3, 3.3.2, 1.4.10, 2.1.1, 2.4.6, 1.3.5, 3.
 
 † Closure volume is a capacity indicator, **not** an accessibility outcome by itself. Read it with backlog size and new-issue inflow.
 
-**Trend chart — open accessibility-labeled issues (M1; lower is desirable)**
+### Historical trends by metric
 
-Each `█` represents approximately five issues; the number at right is authoritative.
+The eight GitHub-renderable Mermaid line charts below show **observations only**, not FY27 targets. The scorecard table above provides the exact values and accessible text alternative to the visual trends. All x-axis labels denote **quarter-start snapshot dates** (`Oct24` = October 1, 2024). For M3 and M4, the point at each date describes the **preceding** calendar quarter. Each plot has its own vertical scale; do not compare line heights across metrics.
 
-```text
-Oct 24  ██████████████    72
-Jan 25  ████████████      59
-Apr 25  ██████████████    72
-Jul 25  ███████████████   75
-Oct 25  ███████████████   75
-Jan 26  ███████████████   76
-Apr 26  ████████████████  78
-Jul 26  ████████████      58
-Oct 26  ████████████      61
-FY27    ██████████       ≤50 target
+**M1 — Open accessibility-labeled issues (count; lower is desirable)**
+
+```mermaid
+xychart-beta
+    title "M1: Open accessibility issues"
+    x-axis [Oct24, Jan25, Apr25, Jul25, Oct25, Jan26, Apr26, Jul26, Oct26]
+    y-axis "Issues" 0 --> 80
+    line [72, 59, 72, 75, 75, 76, 78, 58, 61]
+```
+
+**M2 — Open accessibility issues needing confirmation (count; lower is desirable)**
+
+```mermaid
+xychart-beta
+    title "M2: Open issues needing confirmation"
+    x-axis [Oct24, Jan25, Apr25, Jul25, Oct25, Jan26, Apr26, Jul26, Oct26]
+    y-axis "Issues" 0 --> 14
+    line [10, 10, 9, 7, 7, 8, 8, 7, 12]
+```
+
+**M3 — Accessibility issues closed in preceding quarter (count; read with M1)**
+
+```mermaid
+xychart-beta
+    title "M3: Closures in preceding quarter"
+    x-axis [Oct24, Jan25, Apr25, Jul25, Oct25, Jan26, Apr26, Jul26, Oct26]
+    y-axis "Issues" 0 --> 40
+    line [1, 22, 5, 1, 0, 0, 0, 25, 37]
+```
+
+**M4 — Mean days from issue creation to closure (lower is desirable).** No issues closed in the quarters ending October 2025, January 2026, or April 2026; the mean on those dates is **N/A, not zero**. Mermaid `xychart-beta` does not support missing points in a line, so this chart connects only the six *observed* quarters and omits those three dates from its x-axis. The line spanning July 2025 to July 2026 is **not** evidence of intermediate measurements.
+
+```mermaid
+xychart-beta
+    title "M4: Mean days to closure (observed quarters only)"
+    x-axis [Oct24, Jan25, Apr25, Jul25, Jul26, Oct26]
+    y-axis "Days" 0 --> 850
+    line [114.0, 400.8, 284.2, 126.9, 799.7, 638.0]
+```
+
+**M5 — Published `fail` + `exception` test items (count; lower is desirable)**
+
+```mermaid
+xychart-beta
+    title "M5: Fail or exception test items"
+    x-axis [Oct24, Jan25, Apr25, Jul25, Oct25, Jan26, Apr26, Jul26, Oct26]
+    y-axis "Test items" 0 --> 16
+    line [7, 7, 14, 14, 14, 14, 14, 14, 14]
+```
+
+**M6 — Component files with a `fail` or `exception` (count; lower is desirable, subject to M7 coverage)**
+
+```mermaid
+xychart-beta
+    title "M6: Components with nonpassing test items"
+    x-axis [Oct24, Jan25, Apr25, Jul25, Oct25, Jan26, Apr26, Jul26, Oct26]
+    y-axis "Component files" 0 --> 12
+    line [7, 6, 10, 10, 10, 10, 10, 10, 10]
+```
+
+**M7 — Component test-data files (count; higher means broader *documented* scope)**
+
+```mermaid
+xychart-beta
+    title "M7: Published component test-data files"
+    x-axis [Oct24, Jan25, Apr25, Jul25, Oct25, Jan26, Apr26, Jul26, Oct26]
+    y-axis "Component files" 0 --> 50
+    line [21, 33, 42, 43, 43, 43, 43, 43, 44]
+```
+
+**M8 — New WCAG 2.2 A/AA criteria referenced (count out of six; higher means broader documented coverage)**
+
+```mermaid
+xychart-beta
+    title "M8: New WCAG 2.2 criteria with test records (of 6)"
+    x-axis [Oct24, Jan25, Apr25, Jul25, Oct25, Jan26, Apr26, Jul26, Oct26]
+    y-axis "Criteria (of 6)" 0 --> 6
+    line [2, 3, 3, 3, 3, 3, 3, 3, 3]
 ```
 
 **Interpretation:** M1 fell substantially during Q2–Q3 2026, when 25 and 37 accessibility-labeled issues, respectively, were closed. The mean age of those closed issues was high (799.7 and 638.0 days), consistent with clearing older work; the scorecard alone does not establish why the issues closed or whether every closure resolved an accessibility barrier. Meanwhile, the documented M5 count held at 14 even as the published test inventory expanded. The next review should reconcile published exceptions with linked issue outcomes, not assume those two datasets update together.
