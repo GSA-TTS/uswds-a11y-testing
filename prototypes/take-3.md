@@ -1,4 +1,4 @@
-# USWDS accessibility measurement program — revised draft
+# USWDS Accessibility Measurement Program — v2
 
 **Measurement standard:** WCAG 2.2 AA
 
@@ -6,7 +6,7 @@
 
 **Historical snapshots:** Every three months from October 1, 2024, through October 1, 2026
 
-**Status:** Draft for review; not yet approved for publication
+**Status:** Draft for review
 
 ## Executive summary
 
@@ -64,7 +64,7 @@ V1’s criterion table contained **3.3.3, 3.3.2, 1.4.10, 2.1.1, 2.4.6, 1.3.5, 3.
 
 ### V1 component/criterion results (diagnostic detail)
 
-The following reproduces the chart on pages 8–11 of the v1 PDF as a linked table, with all **14** baseline `fail` or `exception` items in the [October 1, 2026 snapshot](https://github.com/uswds/uswds-site/tree/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests). It is **not** eight additional program metrics. Each row represents one test item; repeated criteria or components are intentional. Links to component pages are for reading the published results; the pinned YAML links are the historical source of the status.
+The following is a linked table, with all **14** baseline `fail` or `exception` items in the [October 1, 2026 snapshot](https://github.com/uswds/uswds-site/tree/4393275e292b2c081cc543198d895441aa4218d4/_data/accessibility-tests). It is **not** eight additional program metrics. Each row represents one test item; repeated criteria or components are intentional. Links to component pages are for reading the published results; the pinned YAML links are the historical source of the status.
 
 | WCAG 2.2 criterion | Component | Result | Historical data |
 |---|---|---|---|
@@ -219,10 +219,9 @@ The selected historical source commits, in scorecard order, are:
 
 **4. Keep the reporting boundary stable.** Publish the selected SHA, cutoff timezone, counts by *all four* test statuses, and the issue-label/closure rules with each quarterly update. A change in the number of published files changes what the test-result counts can represent. A changed label policy changes what the issue counts can represent. Record either change before comparing quarters.
 
-## Recommended improvements for FY27
+## Proposed Practices to Adopt
 
 1. **Publish the scorecard with its exclusions and source snapshot.** Primer explicitly lists skipped axe stories; Adobe documents known false positives; USWDS should similarly publish `conditional`, `exception`, `fail`, the test-inventory denominator, and the snapshot SHA together. **Expected measurable effect:** initially no promised reduction in failures, but every published M5 total becomes auditable against a four-status breakdown; the baseline exposes **110 conditional items** rather than folding them into a misleading pass/fail figure.
 
 2. **Pair automated checks with a recorded manual acceptance checklist.** GOV.UK provides component acceptance criteria, and Carbon separates automated, keyboard/magnification, and screen-reader checks. For each newly tested USWDS component or substantive change, record which checks ran and which WCAG 2.2 criteria were examined. **Proposed measurable effect:** add records for the **three currently unreferenced new A/AA criteria** by FY27 year-end, moving M8 from **3/6 to 6/6**. This is an estimate of *documented test coverage*, not an estimate that three accessibility barriers will be fixed.
 
-**Publication gate:** Review and approve this report and its proposed targets before turning the scorecard into a `uswds/uswds` GitHub Discussion. No Discussion has been posted.
